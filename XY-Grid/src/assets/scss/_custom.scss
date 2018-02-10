@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+* {
+  font-family: 'Source Sans Pro', sans-serif !important;
+}
 body {
   background-color: darkgray;
 }
@@ -8,4 +12,33 @@ body {
 
 .cell {
   background-color: rosybrown;
+}
+
+//Semantico
+
+.contenido {
+  @include xy-grid-container();
+  .principal {
+    @include xy-grid();
+    .nosotros {
+      @include xy-cell();
+      @include breakpoint(medium) {
+        //@include xy-cell(60%);
+        //@include xy-cell(1 of 3);
+        @include xy-cell(10);
+      }
+    }
+    aside {
+      @include xy-cell();
+      @include breakpoint(medium) {
+        //@include xy-cell(40%);
+        //@include xy-cell(2 of 3);
+        @include xy-cell(2);
+      }
+    }
+  }
+}
+
+.red {
+  background-color: red;
 }
