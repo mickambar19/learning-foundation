@@ -85,3 +85,35 @@ body {
     }
   }
 }
+
+/** MIXINS **/
+
+.menu-responsive {
+  // @include hamburger(color, colorhover, ancho, alto, grosor de barra, cantidad de barras)
+  @include hamburger(black, red, 50px, 30px, 5px, 3);
+}
+
+.centrar-elemento {
+  height: 300px;
+  background-color: lightblue;
+  position: relative;
+
+  p {
+    // @include vertical-center;
+    //@include horizontal-center;
+    @include absolute-center;
+  }
+}
+
+.caja {
+  @include box(200px, 200px);
+  background-color: green;
+}
+
+.registro-exitoso {
+  height: 50px;
+  @include bordered(2px, dashed, green) position: relative;
+  p {
+    @include absolute-center;
+  }
+}
