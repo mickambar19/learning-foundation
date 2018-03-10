@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 * {
-  font-family: 'Source Sans Pro', sans-serif !important;
+  font-family: "Source Sans Pro", sans-serif !important;
 }
 body {
   background-color: darkgray;
@@ -41,4 +41,47 @@ body {
 
 .red {
   background-color: red;
+}
+
+//Semantico alinear hijos
+.contenedor {
+  @include xy-grid-container();
+  .contenido-principal {
+    @include xy-grid();
+    background-color: brown;
+    height: 600px;
+    //$x = left, right, center, justify, spaced
+    //$y = top, bottom, middle, stretch
+    @include flex-align(left, middle);
+    .noticia {
+      @include xy-cell(4);
+      @include flex-align(center, middle);
+      background-color: rgba(201, 128, 128, 0.473);
+      color: white;
+    }
+  }
+}
+
+//Semantico alinear hijos
+.contenedor-self {
+  @include xy-grid-container();
+  .contenido-principal {
+    @include xy-grid();
+    background-color: brown;
+    height: 600px;
+    .noticia-principal {
+      @include xy-cell(8);
+      background-color: rgba(35, 184, 189, 0.623);
+      // $y = top, bottom, middle, stretch
+      @include flex-align-self(stretch);
+      @include flex-order(2);
+    }
+    .noticia {
+      @include xy-cell(4);
+      background-color: rgba(0, 128, 0, 0.308);
+      // $y = top, bottom, middle, stretch
+      @include flex-align-self(top);
+      @include flex-order(1);
+    }
+  }
 }
