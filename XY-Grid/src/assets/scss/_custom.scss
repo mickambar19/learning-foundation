@@ -117,3 +117,24 @@ body {
     @include absolute-center;
   }
 }
+
+.bold {
+  @include font-bold();
+}
+
+.posicion {
+  @include position(relative);
+  height: 200px;
+  background-color: lightcoral;
+  .contenido {
+    @include position(absolute, 1, 0, 0, 0);
+    @include padding(2, 3, 2, 3);
+    background-color: blue;
+    height: 30px;
+  }
+}
+
+.contenido-principal-blog {
+  height: rem-calc(200);
+  background-color: yellow;
+}
