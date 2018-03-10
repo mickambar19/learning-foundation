@@ -4,4 +4,6 @@ npm-debug.log
 bower_components
 dist
 *.swp
-.vscode
+.vscode/
+yarn.lock
+yarn-error.log
