@@ -1,0 +1,66 @@
+{{!-- This is the base layout for your project, and will be used on every page. --}}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foundation for Sites</title>
+  <link rel="stylesheet" href="{{root}}assets/css/app.css">
+</head>
+
+<body>
+  <div class="site-header">
+    <div class="contenedor">
+      <div class="header-superior">
+        <div class="logo">
+          <img src="assets/img/logo.svg" alt="">
+        </div>
+        <!-- .logo -->
+        <div class="navegaciones">
+          <nav class="menu-social">
+
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Youtube</a>
+            <a href="#">Instagram</a>
+
+          </nav>
+          <!-- .menu-social -->
+          <ul id="menu-principal" class="menu-principal">
+            <li>
+              <a href="#">Inicio</a>
+            </li>
+            <li>
+              <a href="#">Nosotros</a>
+            </li>
+            <li>
+              <a href="#">Proceso</a>
+            </li>
+            <li>
+              <a href="#">Menú</a>
+            </li>
+            <li>
+              <a href="#">Contacto</a>
+            </li>
+          </ul>
+          <!-- menu-principal -->
+        </div>
+        <!-- .navegaciones -->
+      </div>
+      <!-- .header-superior -->
+
+      <div class="header-slogan">
+        <h1 class="slogan">Disfruta una deliciosa taza de café</h1>
+      </div>
+    </div>
+
+  </div>
+  {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}} {{> body}}
+
+  <script src="{{root}}assets/js/app.js"></script>
+</body>
+
+</html>

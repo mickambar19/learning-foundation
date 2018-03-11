@@ -1,0 +1,65 @@
+.contenedor {
+  @include xy-grid-container();
+}
+
+.site-header {
+  background-image: url(../img/destacadas/chico/inicio.jpg);
+  background-repeat: no-repeat;
+  height: 100vh;
+  min-height: rem-calc(600);
+  background-size: cover;
+
+  @include breakpoint(medium) {
+    background-image: url(../img/destacadas/mediano/inicio.jpg);
+  }
+
+  @include breakpoint(large) {
+    background-image: url(../img/destacadas/grande/inicio.jpg);
+  }
+
+  .header-superior {
+    @include xy-grid();
+    background: #000;
+    @include flex-align(center, top);
+    @include breakpoint(medium) {
+      @include flex-align(justify, top);
+    }
+    .logo {
+      @include xy-cell(6);
+      @include breakpoint(medium) {
+        @include xy-cell(25%);
+      }
+    }
+  }
+
+  .header-slogan {
+    @include xy-grid();
+    background-color: #fff;
+    @include flex-align(center, middle);
+    height: rem-calc(300);
+    .slogan {
+      color: $white;
+      @include font-bold(900);
+      @include text-transform(uppercase);
+    }
+  }
+}
+
+.navegaciones {
+  @include xy-cell();
+  @include breakpoint(medium) {
+    @include xy-cell(auto);
+  }
+
+  .menu-principal {
+    @include menu-base();
+    @include flex-align(right, middle);
+    li {
+      a {
+        @include text-transform(uppercase);
+        @include font-bold(700);
+        font-size: rem-calc(16);
+      }
+    }
+  }
+}
