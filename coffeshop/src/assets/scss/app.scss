@@ -3,7 +3,7 @@
 @import "settings";
 @import "foundation";
 @import "motion-ui";
-
+@import url("https://fonts.googleapis.com/css?family=Bellefair|Lato:400,700,900");
 @include foundation-global-styles;
 // @include foundation-grid;
 // @include foundation-flex-grid;
@@ -51,5 +51,5 @@
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
-
+@import "font-awesome/font-awesome";
 @import "custom";

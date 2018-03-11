@@ -1,26 +1,44 @@
+//Fuente google font
+$bellefair: "Bellefair", serif;
+
+@mixin background_image($pagina) {
+  background-image: url(../img/destacadas/chico/#{$pagina}.jpg);
+  @include breakpoint(medium) {
+    background-image: url(../img/destacadas/mediano/#{$pagina}.jpg);
+  }
+
+  @include breakpoint(large) {
+    background-image: url(../img/destacadas/grande/#{$pagina}.jpg);
+  }
+}
 .contenedor {
   @include xy-grid-container();
 }
 
+.icono-menu {
+  @include hamburger($white, $white, 40px, 32px, 4px, 3);
+}
 .site-header {
-  background-image: url(../img/destacadas/chico/inicio.jpg);
   background-repeat: no-repeat;
   height: 100vh;
   min-height: rem-calc(600);
   background-size: cover;
 
-  @include breakpoint(medium) {
-    background-image: url(../img/destacadas/mediano/inicio.jpg);
+  &.inicio {
+    @include background_image(inicio);
   }
-
-  @include breakpoint(large) {
-    background-image: url(../img/destacadas/grande/inicio.jpg);
+  &.nosotros {
+    @include background_image(nosotros);
+  }
+  .contenedor {
+    z-index: 1;
+    @include position(relative);
   }
 
   .header-superior {
     @include xy-grid();
-    background: #000;
     @include flex-align(center, top);
+    @include padding(1);
     @include breakpoint(medium) {
       @include flex-align(justify, top);
     }
@@ -34,7 +52,6 @@
 
   .header-slogan {
     @include xy-grid();
-    background-color: #fff;
     @include flex-align(center, middle);
     height: rem-calc(300);
     .slogan {
@@ -42,6 +59,23 @@
       @include font-bold(900);
       @include text-transform(uppercase);
     }
+  }
+  &:after {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7) 20%,
+      rgba(0, 0, 0, 0.3)
+    );
+    content: "";
+    @include position(absolute, 0, 0, 0, 0);
+  }
+
+  .title-bar {
+    background-color: $primary-color;
+    @include flex-align(center, middle);
+  }
+  .title-bar-title {
+    margin-left: rem-calc(20);
   }
 }
 
@@ -54,12 +88,85 @@
   .menu-principal {
     @include menu-base();
     @include flex-align(right, middle);
+    @include breakpoint(small only) {
+      background-color: darken($primary-color, 10%);
+    }
     li {
+      @include breakpoint(small only) {
+        width: 100%;
+        text-align: center;
+      }
       a {
         @include text-transform(uppercase);
         @include font-bold(700);
         font-size: rem-calc(16);
       }
     }
+  }
+}
+
+.menu-social {
+  @include menu-base();
+  @include flex-align(center, middle);
+  margin-bottom: rem-calc(10);
+  @include breakpoint(medium) {
+    @include flex-align(right, middle);
+  }
+
+  a {
+    &:before {
+      display: inline-block;
+      font-family: "Fontawesome";
+      font-size: rem-calc(30);
+      color: $white;
+      -webkit-font-smoothing: antialised;
+      content: "\f08e";
+    }
+    &[href*="facebook.com"]::before {
+      content: "\f082";
+    }
+    &[href*="twitter.com"]::before {
+      content: "\f099";
+    }
+    &[href*="youtube.com"]::before {
+      content: "\f16d";
+    }
+    &[href*="instagram.com"]::before {
+      content: "\f16a";
+    }
+  }
+}
+.site-footer {
+  background-color: $primary-color;
+  .contenedor {
+    background-color: $white;
+    .contenido-footer {
+      @include xy-grid();
+      @include padding(2, 2, 4, 2);
+      .footer-box {
+        @include xy-cell();
+        text-align: center;
+
+        @include breakpoint(medium) {
+          @include xy-cell(1 of 3);
+        }
+        h3 {
+          font-family: $bellefair;
+          color: $secondary-color;
+          @include text-transform(uppercase);
+        }
+        p {
+          margin: 0;
+          font-size: rem-calc(18);
+        }
+      }
+    }
+  }
+  .copyright {
+    @include padding(1, null, 1, null);
+    text-align: center;
+    @include font-bold(900);
+    color: $white;
+    font-size: rem-calc(18);
   }
 }
